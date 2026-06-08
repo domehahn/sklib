@@ -63,7 +63,10 @@ func CompareVersionsSafe(a, b string) (int, error) {
 
 // CompareVersions compares two SemVer strings (stable only; pre-release ordering is not guaranteed).
 // Returns -1 if a < b, 0 if a == b, 1 if a > b.
-// Panics if either value is not a valid stable SemVer.
+// Panics if either value is not valid SemVer.
+//
+// Deprecated: use CompareVersionsSafe in all production code. CompareVersions is kept only as a
+// sort.Slice convenience where both inputs are guaranteed pre-validated.
 func CompareVersions(a, b string) int {
 	pa, err := parseSemVerParts(a)
 	if err != nil {
