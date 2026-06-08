@@ -1,0 +1,33 @@
+version: 1
+generated_by: skpm/0.3.1
+
+skills:
+  - namespace: myorg
+    name: gitlab-policy-reviewer
+    version: "1.5.2"
+    constraint: "^1.5.0"
+    source: skillforge://registry.example.com/myorg/gitlab-policy-reviewer@1.5.2
+    registry_type: skillforge
+    registry_url: https://registry.example.com
+    artifact: myorg-gitlab-policy-reviewer-1.5.2.tar.gz
+    download_url: https://registry.example.com/skills/myorg/gitlab-policy-reviewer/1.5.2/dl
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    package_type: tar.gz
+    compatible_with:
+      - claude-code
+      - gitlab-duo
+
+  - namespace: myorg
+    name: pr-summarizer
+    version: "2.0.0"
+    constraint: "2.0.0"
+    source: skillforge://registry.example.com/myorg/pr-summarizer@2.0.0
+    registry_type: skillforge
+    registry_url: https://registry.example.com
+    artifact: myorg-pr-summarizer-2.0.0.tar.gz
+    download_url: https://registry.example.com/skills/myorg/pr-summarizer/2.0.0/dl
+    sha256: abc123def456789012345678901234567890123456789012345678901234abcd
+    package_type: tar.gz
+    compatible_with:
+      - claude-code
+      - gitlab-duo

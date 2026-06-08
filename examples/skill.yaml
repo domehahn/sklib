@@ -1,0 +1,22 @@
+name: gitlab-policy-reviewer
+namespace: myorg
+version: "1.5.0"
+description: Reviews GitLab security policies and merge request configurations.
+owners:
+  - security-team@example.com
+license: MIT
+entrypoint: SKILL.md
+compatible_with:
+  - claude-code
+  - gitlab-duo
+tags:
+  - security
+  - gitlab
+  - policy
+security:
+  requires_network: false
+  requires_secrets: false
+  writes_files: false
+  runs_commands: false
+metadata:
+  team: platform-security
