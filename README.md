@@ -5,7 +5,7 @@
 It provides canonical data models, parsing helpers, validation primitives, and registry API DTOs used across the skill ecosystem tools:
 
 | Tool | Role |
-|------|------|
+| --- | --- |
 | **skcr** | Creates skill skeletons and renders project/platform structures |
 | **skpm** | Generic skill package manager and lifecycle manager |
 | **SkillForge** | Concrete skill registry server |
@@ -18,7 +18,7 @@ It provides canonical data models, parsing helpers, validation primitives, and r
 ## What sklib contains
 
 | Package | Purpose |
-|---------|---------|
+| --- | --- |
 | `spec` | Canonical data models: `Skill`, `AgentSkillsManifest`, `AgentSkillsLock`, `PackageManifest`, platform constants, SemVer helpers |
 | `ref` | Skill reference parsing and formatting (`namespace/name@constraint`) |
 | `validate` | Composable validation result types and validators |
@@ -30,7 +30,7 @@ It provides canonical data models, parsing helpers, validation primitives, and r
 
 ## What sklib intentionally does not contain
 
-```
+```text
 sklib does not scaffold skills.
 sklib does not package skills.
 sklib does not publish skills.
@@ -189,14 +189,15 @@ spec.CompareVersions("1.2.3", "1.3.0")   // -1
 
 ## Relationship to skillspec
 
-`sklib` is the authoritative Go implementation of the skill specification.
-There is no separate `skillspec` package — all canonical definitions live here.
+[`skillspec`](https://github.com/domehahn/skillspec) defines the vendor-neutral specification: JSON Schemas, OpenAPI, and package-layout documentation.
+
+`sklib` is the Go implementation of that specification. Types, validation rules, and field names in `sklib` are derived from and must stay consistent with `skillspec`.
 
 ---
 
 ## Module
 
-```
+```text
 github.com/domehahn/sklib
 ```
 

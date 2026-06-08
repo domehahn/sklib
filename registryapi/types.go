@@ -1,4 +1,4 @@
-// Package registryapi defines DTOs for the SkillForge registry HTTP API.
+// Package registryapi defines DTOs for the vendor-neutral Skill Registry API.
 // It contains only data types — no HTTP clients.
 package registryapi
 
@@ -70,12 +70,12 @@ type SearchResult struct {
 	Tags          []string `json:"tags,omitempty"`
 }
 
-// ResolveRequest is the body for POST /skills/{namespace}/{name}/resolve.
+// ResolveRequest represents query parameters for GET /skills/{namespace}/{name}/resolve.
 type ResolveRequest struct {
 	Constraint string `json:"constraint,omitempty"`
 }
 
-// ResolveResponse is returned by POST /skills/{namespace}/{name}/resolve.
+// ResolveResponse is returned by GET /skills/{namespace}/{name}/resolve.
 type ResolveResponse struct {
 	Namespace      string          `json:"namespace"`
 	Name           string          `json:"name"`
@@ -87,7 +87,7 @@ type ResolveResponse struct {
 	CompatibleWith []spec.Platform `json:"compatible_with,omitempty"`
 }
 
-// PublishResponse is returned by PUT /skills/{namespace}/{name}/{version}.
+// PublishResponse is returned by PUT /skills/{namespace}/{name}/versions/{version}.
 type PublishResponse struct {
 	Namespace   string `json:"namespace"`
 	Name        string `json:"name"`

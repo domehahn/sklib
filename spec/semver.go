@@ -39,6 +39,28 @@ func NormalizeVersion(value string) (string, error) {
 	return stripped, nil
 }
 
+// CompareVersionsSafe compares two SemVer strings.
+// Returns -1 if a < b, 0 if a == b, 1 if a > b, and an error if either value is not valid SemVer.
+func CompareVersionsSafe(a, b string) (int, error) {
+	pa, err := parseSemVerParts(a)
+	if err != nil {
+		return 0, fmt.Errorf("invalid version %q: %w", a, err)
+	}
+	pb, err := parseSemVerParts(b)
+	if err != nil {
+		return 0, fmt.Errorf("invalid version %q: %w", b, err)
+	}
+	for _, pair := range [][2]int{{pa.major, pb.major}, {pa.minor, pb.minor}, {pa.patch, pb.patch}} {
+		if pair[0] < pair[1] {
+			return -1, nil
+		}
+		if pair[0] > pair[1] {
+			return 1, nil
+		}
+	}
+	return 0, nil
+}
+
 // CompareVersions compares two SemVer strings (stable only; pre-release ordering is not guaranteed).
 // Returns -1 if a < b, 0 if a == b, 1 if a > b.
 // Panics if either value is not a valid stable SemVer.
